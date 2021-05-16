@@ -1,0 +1,45 @@
+#servicios{
+    min-height: 650px;
+}
+
+.contenido_servicios {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 400px;
+    flex-direction: column;
+}
+
+.iconos_servicios {
+    color:#fe6261;
+}
+
+.texto_iconos {
+    font-size: 15px;
+    padding-top: 15px;
+}
+
+.imagen_footer{
+    width: 500px;
+}
+
+@media (min-width: 500px) and (max-width: 835px ){
+    .texto_iconos {
+        font-size: 18px;
+    }
+
+    .imagen_footer{
+        width: 300px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 425px ){
+    .texto_iconos {
+        font-size: 40px;
+    }
+
+    .imagen_footer{
+        width: 200px;
+    }
+}

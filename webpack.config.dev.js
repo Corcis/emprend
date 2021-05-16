@@ -34,8 +34,29 @@ module.exports = {
                 use: [
                     'style-loader',
                     'css-loader',
-                    'sass-loader'
+                    'sass-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions:{
+                                plugins: function () {
+                                    return [
+                                        require('autoprefixer')
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 ]
+            },
+            {
+                test: /\.(png|gif|jpg)$/,
+                use: [
+                {
+                    loader: 'file-loader',
+                    options: { name: 'assets/[hash].[ext]' },
+                }
+                ],
             }
         ]
     },

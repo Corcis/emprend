@@ -1,0 +1,78 @@
+#contacto{
+    background-color: #ededed ;
+    min-height: 1000px;
+}
+.subtitulo2 {
+    color: #333333;
+    font-size: 22px !important;
+    padding-top: 10px;
+}
+
+.contenido_contacto {
+    flex-direction: column;
+}
+
+.iconos_contacto{
+    color: #fe6261 !important;
+}
+
+.text_escribenos{
+    color: #fe6261;
+    font-size: 15px !important;
+    padding-top: 20px;
+    padding-bottom: 25px;
+}
+
+.contenido_input {
+    padding-bottom: 40px;
+}
+
+.contenido_info {
+    background-color: #333333 ;
+    flex-direction: column;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.mapa_contacto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    min-width: 100%;
+    border:solid 10px #fff;
+}
+
+.subtitulo_mapa{
+    color: #fff;
+    font-size: 30px !important;
+    padding-top: 20px;
+}
+
+.detalles_mapa {
+    width: 90%;
+    color: #fff;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.detalles_texto {
+    font-size: 18px;
+}
+
+.completo{
+    padding-bottom: 10px;
+}
+
+@media (min-width: 500px) and (max-width: 835px ){
+    .detalles_texto {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 425px ){
+    .detalles_texto {
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,33 @@
+#caracteristicas{
+    background-color: #ededed ;
+    min-height: 750px;
+}
+
+.contenido_caracteristicas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 150px;
+    flex-direction: column;
+}
+
+
+.no_photo{
+   min-height: 450px;
+}
+
+.subtitulo_cara{
+    justify-content: flex-start;
+    color:#fe6261;
+}
+
+@media (min-width: 500px) and (max-width: 835px ){
+    .no_photo{
+        min-height: 350px;
+     }
+}
+
+@media (min-width: 320px) and (max-width: 425px ){
+    
+}

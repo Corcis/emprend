@@ -1,0 +1,71 @@
+#equipo{
+    min-height: 900px;
+}
+.contenido_equipo {
+    padding-bottom: 10px;
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.foto_perfil {
+    width: 200px !important;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+.texto_equipo{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.cuerpo_card  {
+    background-color: #ededed !important ;
+    border: 1px solid #ededed !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 550px;
+}
+
+.cuerpo_card:hover {
+    background-color: #333333 !important ;
+    border: 1px solid #333333 !important;
+    color: #FFF;
+    .iconos_tamanio {
+        visibility: hidden;
+    }
+    .iconos_tamanio2 {
+        visibility: visible;
+    }
+}
+
+.nombre_perfil{
+    color: #fe6261;
+    font-size: 20px;
+}
+
+.iconos_tamanio {
+    width: 50px;
+    position:absolute;
+}
+
+.iconos_tamanio2 {
+    width: 50px;
+    visibility: hidden;
+    position:absolute;
+}
+
+@media (min-width: 500px) and (max-width: 875px ){
+    .iconos_tamanio {
+        width: 40px;
+    }
+
+    .iconos_tamanio2 {
+        width: 40px;
+    }
+
+    .foto_perfil {
+        width: 150px !important;
+        padding-bottom: 10px;
+        padding-top: 20px;
+    }
+}

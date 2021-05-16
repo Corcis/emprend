@@ -1,0 +1,43 @@
+@import 'custom';
+@import '~bootstrap/scss/bootstrap';
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;900&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+.texto_light{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+.texto_bold{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+}
+
+.no_padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.btn-emprend {
+    background-color: #fe6261;
+    color: #fff;
+}
+
+.subtitulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    color: #333333;
+    font-size: 35px !important;
+    padding-top: 100px;
+}
+
+.linea2{
+    background-color: #fe6261;
+    height: 2px !important;
+    opacity: 1 !important;
+}

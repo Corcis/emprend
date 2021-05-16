@@ -1,0 +1,18 @@
+.nav_link {
+    text-decoration: none;
+    color: #fe6261 !important;
+    padding-left: 3.2em;
+    padding-right: 3.2em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav_link:hover{
+    color: #333333;
+}
+
+@media (min-width: 998px) and (max-width: 1217px ){
+    .nav_link {
+        padding-left: 1.2em;
+        padding-right: 1.2em;
+    }
+}
