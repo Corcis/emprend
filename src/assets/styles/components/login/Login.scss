@@ -1,0 +1,44 @@
+.contenedor_login {
+    background-color: #333333;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.elmentos_end{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.name_label{
+    font-size: 25px;
+    padding-top: 25px;
+}
+
+.btn_enviar{
+    padding-top: 30px !important;
+}
+
+.logo_login{
+    width: 500px;
+}
+
+@media (min-width: 500px) and (max-width: 835px ){
+    .logo_login {
+        width: 480px;
+    }
+}
+
+
+@media (min-width: 320px) and (max-width: 500px ){
+    .logo_login{
+        width: 290px;
+    }
+}

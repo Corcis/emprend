@@ -33,28 +33,28 @@ const Contacto = () => (
                         <label className="col-sm-1">
                             <FontAwesomeIcon size="2x" className="iconos_contacto" icon={faEnvelope} /></label>
                         <div className="col-sm-11">
-                            <input type="text" className="form-control align-self-center" placeholder="Correo Electrónico" />
+                            <input type="email" className="form-control align-self-center" placeholder="Correo Electrónico" />
                         </div>
                     </div>
                     <div className="mb-3 row  contenido_input">
                         <label className="col-sm-1">
                             <FontAwesomeIcon size="2x" className="iconos_contacto" icon={faPhone} /></label>
                         <div className="col-sm-11">
-                            <input type="text" className="form-control align-self-center" placeholder="Teléfono" />
+                            <input type="tel" className="form-control align-self-center" placeholder="Teléfono" />
                         </div>
                     </div>
                     <div className="mb-3 row  contenido_input">
                         <label className="col-sm-1">
                             <FontAwesomeIcon size="2x" className="iconos_contacto" icon={faCalendarAlt} /></label>
                         <div className="col-sm-11">
-                            <input type="text" className="form-control align-self-center" placeholder="Elegir fecha" />
+                            <input type="date" className="form-control align-self-center" placeholder="Elegir fecha" />
                         </div>
                     </div>
                     <div className="mb-3 row  contenido_input">
                         <label className="col-sm-1">
                             <FontAwesomeIcon size="2x" className="iconos_contacto" icon={faComments} /></label>
                         <div className="col-sm-11">
-                            <input type="text" className="form-control align-self-center" placeholder="Mensaje" />
+                            <textarea className="form-control align-self-center" placeholder="Mensaje"></textarea>
                         </div>
                     </div>
                     <div className="mb-3 row contenido_input">
