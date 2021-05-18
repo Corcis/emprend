@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducer from './reducers/index'
 
+//Definimos el localStorage que vamos a manejar para la session de los usuarios
 const initialState = {
     user: {
         name: localStorage.name,

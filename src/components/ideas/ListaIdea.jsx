@@ -6,25 +6,31 @@ import { connect } from 'react-redux'
 import NombreUsuario from './NombreUsuario'
 import {Redirect} from 'react-router-dom'
 
+//Listado de las ideas registradas por los uusarios
 const ListaIdea = (props) => {
+    //Constante para los links de first, last, next, prev de la paginacion del listado
     const [ links, setLinks] = useState({ 
         first : "",
         last : "",
         next : "",
         prev : ""
     })
+    //Constante para el guardado de las ideas
     const [ ideas, setIdeas] = useState([])
 
+    //Funcion para  cargado de las ideas (se obtienen las 10 últimas)
     useEffect( () => {
         let unmounted = false;
         let source = axios.CancelToken.source();
-        axios.get('http://localhost:8000/api/comments?api_token=' + props.user.token, { 
+        //Funcion axios enviando el token de usuario para obtener la respuesta de la API
+        axios.get(process.env.API+'/api/comments?api_token=' + props.user.token, { 
             headers: {
                 'Authorization': "Baerer " + props.user.token
             }
         }).then(
             response => { 
                 if (!unmounted) {
+                    //Al obtener una respuest válida de la API seteamos la lista de ideas por las obtenidas
                     const todas_ideas = response.data.data
                     todas_ideas.map(item => ( 
                         setIdeas(ideas =>[
@@ -32,6 +38,7 @@ const ListaIdea = (props) => {
                             item
                         ])
                     ))
+                    //Se setean tambien los links de la paginacion para esta lista de ideas
                     const todas_links =  response.data.links
                     setLinks({
                         ...links,
@@ -51,16 +58,19 @@ const ListaIdea = (props) => {
         };
     }, [] )
     
-    const handleClick = ( uno ) =>{
+    //Al hacer click en alguna opcion de la paginación obtenemos las ideas para esa página
+    const handleClick = ( url ) =>{
         let unmounted = false;
         let source = axios.CancelToken.source();
-        axios.get(uno+'&api_token=' + props.user.token, { 
+        //Enviamos la url de la paginacion correspondiente a la API
+        axios.get(url+'&api_token=' + props.user.token, { 
             headers: {
                 'Authorization': "Baerer " + props.user.token
             }
         }).then(
             response => { 
                 if (!unmounted) {
+                    //Se veulven a setar los valores de las ideas obenias para esta vista
                     const todas_ideas = response.data.data
                     setIdeas(ideas =>[])
                     todas_ideas.map(item => ( 
@@ -69,6 +79,7 @@ const ListaIdea = (props) => {
                             item
                         ])
                     ))
+                    //Se setean los nuevos links correspondientes para la paginaciond e la vista
                     const todas_links =  response.data.links
                     setLinks({
                         ...links,
@@ -105,17 +116,16 @@ const ListaIdea = (props) => {
                             <div className="col-12">
 
                                 {
-                                    //ideas == [] ? <h1></h1> :
                                     ideas.map((item) => (
-                                        <div className="list-group lista" key={item.id}>
-                                            <a href="#" className="list-group-item list-group-item-action" aria-current="true">
+                                        <div className="list-group lista" key={ item.id }>
+                                            <div href="#" className="list-group-item list-group-item-action" aria-current="true">
                                                 <div className="d-flex w-100 justify-content-between">
                                                     <h5 className="mb-1"></h5>
-                                                    <small>{item.created_at.substr(0,10)}</small>
+                                                    <small>{ item.created_at.substr(0,10) }</small>
                                                 </div>
-                                                <p className="mb-1">{item.body}</p>
-                                                <small>Por: <NombreUsuario user_id = {item.user_id} />.</small>
-                                            </a>
+                                                <p className="mb-1">{ item.body }</p>
+                                                <small>Por: <NombreUsuario user_id = { item.user_id } />.</small>
+                                            </div>
                                         </div>
                                     ))
                                 }

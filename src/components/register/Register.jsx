@@ -7,7 +7,9 @@ import axios from 'axios'
 import {connect} from 'react-redux'
 import { setUser } from '../../actions/index'
 
+//Componente para el registro de un nuevo usuario
 const Register = (props) => {
+    //Constante con los valores necesarios para el registro del usuario
     const [ form, setForm] = useState({
         email: "",
         name: "",
@@ -15,6 +17,7 @@ const Register = (props) => {
         password_confirmation: "",
     })
 
+    //Seteamos la informacion mientras se va ingresando
     const handleChange = ( event ) =>{
         setForm({
             ...form,
@@ -22,14 +25,17 @@ const Register = (props) => {
         })
     }
 
+    //funcion para el almacenamiento del nuevo usuario con ayuda de la API
     const handleSubmit = ( event ) =>{
         event.preventDefault()
         var header = new Headers({
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': 'http://localhost:3001/',
         })
-        axios.post('http://localhost:8000/api/register',form).then(
+        //Pasamos nuestro formulario a la ruta correspondiente de la API
+        axios.post(process.env.API+'/api/register',form).then(
             response => { 
+                //Si los datos son correcto y se guardo la API se 'inicia sesion' con este nuevo usuario y se guardan los valores de la session de este usuario
                 localStorage.name = response.data.data.name
                 localStorage.email = response.data.data.email
                 localStorage.token = response.data.data.api_token
@@ -38,6 +44,7 @@ const Register = (props) => {
             }
         ).catch(
             error => { 
+                //Si hubo algun error se muestra un error
                 document.getElementById('alerta_registro').style.display = "block";
                 setTimeout(function(){ 
                     document.getElementById('alerta_registro').style.display = "none"; 

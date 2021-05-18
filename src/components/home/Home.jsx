@@ -8,6 +8,8 @@ import Equipo from './Equipo'
 import Contacto from './Contacto'
 import FooterGrande from './FooterGrande'
 import FooterChico from './FooterChico'
+
+//Se integran todos los componentes de la pagina principal
 const Home = () => (
     <React.Fragment>
         <Header />

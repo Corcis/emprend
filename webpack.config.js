@@ -1,12 +1,14 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const Dotenv = require('dotenv-webpack')
 
 module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js"
+        filename: "bundle.js",
+        publicPath: './'
     },
     resolve: {
         extensions: [
@@ -34,13 +36,34 @@ module.exports = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
-                    'sass-loader'
+                    'sass-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions:{
+                                plugins: function () {
+                                    return [
+                                        require('autoprefixer')
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 ]
+            },
+            {
+                test: /\.(png|gif|jpg)$/,
+                use: [
+                {
+                    loader: 'file-loader',
+                    options: { name: 'assets/[hash].[ext]' },
+                }
+                ],
             }
         ]
     },
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        contentBase: './dist',
         historyApiFallBack: true,
         compress: true,
         port: 3001
@@ -48,10 +71,13 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
-            filename: './index.html'
+            filename: 'index.html',
         }),
         new MiniCssExtractPlugin({
             filename: '[name].css'
+        }),
+        new Dotenv({
+            path: './.env'
         })
     ]
 }

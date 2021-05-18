@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 
+//Componente para obtener el nombre del usuario que creo la idea
 const NombreUsuario = (props) => {
+    //Constante que guarda la informacion del usuario que se esta buscando
     const [ usuario, setUsuario] = useState({})
     
+    //Se busca en la API el usuario correspondiente 
     useEffect( () => {
         let unmounted = false;
         let source = axios.CancelToken.source();
-        return axios.get('http://localhost:8000/api/user/'+ props.user_id +'?api_token=' + props.user.token, { 
+        //Se consume la API para el usuario (se envio el id del usuario desde ListaIdea) y se setea el valor del usuario con el obtenido
+        return axios.get(process.env.API+'/api/user/'+ props.user_id +'?api_token=' + props.user.token, { 
             headers: {
                 'Authorization': "Baerer " + props.user.token
             }
@@ -25,7 +29,7 @@ const NombreUsuario = (props) => {
             source.cancel("Cancelling in cleanup");
         };
     }, [] )
-    
+    //Retornamos el nombre del usuario obtenido
     return (<span>{usuario.name}</span>);
 }
 

@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "webpack server --config webpack.config.dev.js",
+        "start": "webpack server --env API=http://localhost:8000 --config webpack.config.dev.js",
         "build": "webpack --config webpack.config.js"
     },
     "keywords": [
@@ -27,7 +27,8 @@
         "react-redux": "^7.2.4",
         "react-router-dom": "^5.2.0",
         "redux": "^4.1.0",
-        "sass": "^1.32.13"
+        "sass": "^1.32.13",
+        "sweetalert2-react": "^0.8.3"
     },
     "devDependencies": {
         "@babel/core": "^7.14.2",
@@ -35,6 +36,7 @@
         "@babel/preset-react": "^7.13.13",
         "babel-loader": "^8.2.2",
         "css-loader": "^5.2.4",
+        "dotenv-webpack": "^7.0.2",
         "file-loader": "^6.2.0",
         "html-loader": "^2.1.2",
         "html-webpack-plugin": "^5.3.1",

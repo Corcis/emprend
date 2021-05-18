@@ -8,11 +8,14 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import {Redirect} from 'react-router-dom'
 
+//Componente para el registro de una idea por usuario logueado
 const RegisterIdea = (props) => {
+    //Constante para el guardado de la idea solo con el contenido de la idea
     const [ form, setIdea] = useState({
         body: "",
     })
 
+    //Seteamos el valor del body de la idea cuando el textarea se cambia
     const handleChange = ( event ) =>{
         setIdea({
             ...form,
@@ -20,14 +23,17 @@ const RegisterIdea = (props) => {
         })
     }
 
+    //Funcion para el envio a l API de la nueva idea
     const handleSubmit = ( event ) =>{
         event.preventDefault()
         var header = new Headers({
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': 'http://localhost:3001/',
         })
-        axios.post('http://localhost:8000/api/comments?api_token='+props.user.token,form).then(
+        //Pasamos el formulario con la idea y el token del usuario
+        axios.post(process.env.API+'/api/comments?api_token='+props.user.token,form).then(
             response => { 
+                //Retornamos a la vista de Lista de ideas
                 props.history.push('/ideasLista')
             }
         ).catch(

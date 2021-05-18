@@ -7,11 +7,14 @@ import { connect, useStore } from 'react-redux'
 import { setUser } from '../../actions/index'
 import axios from 'axios'
 
+//Componente para el login de usuarios registrados
 const Login = (props) => {
+    //Constante para el formulario con el email de mi usuario a loguearse
     const [ form, setForm] = useState({
         email: "",
     })
 
+    //Seteamos el valor del email cuando el suario escriba algo en el campo de Usuario
     const handleChange = ( event ) =>{
         setForm({
             ...form,
@@ -19,19 +22,24 @@ const Login = (props) => {
         })
     }
 
+    //Fucnion para el envio a validacion del usuario a la API
     const handleSubmit = ( event ) =>{
         event.preventDefault()
         props.setUser(form)
-        axios.post('http://localhost:8000/api/login',form).then(
+        //Consumimos la API enviando los valores de usuario y contraseña
+        axios.post(process.env.API+'/api/login',form).then(
             response => { 
+                //Si la API encuentra algun usuario con los valores ingresados se asignan los valores al localStorage que simula la SESSION iniciada
                 localStorage.name = response.data.data.name
                 localStorage.email = response.data.data.email
                 localStorage.token = response.data.data.api_token
                 props.setUser(response.data.data)
+                //Redireccionamos a vista de ideas
                 props.history.push('/ideasLista')
             }
         ).catch(
             error => {
+                //Si no se encuentra coincidencias con los datos ingresados se muetsra un mensaje de error
                 document.getElementById('alerta_registro').style.display = "block";
                 setTimeout(function(){ 
                     document.getElementById('alerta_registro').style.display = "none"; 
