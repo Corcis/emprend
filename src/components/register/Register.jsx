@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
-import '../../assets/styles/components/login/Login.scss'
+import '../../assets/styles/components/register/Register.scss'
 import LogoBlanco from '../../assets/static/logo_blanco.png'
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { connect, useStore } from 'react-redux'
-import { setUser } from '../../actions/index'
 import axios from 'axios'
+import {connect} from 'react-redux'
+import { setUser } from '../../actions/index'
 
-const Login = (props) => {
+const Register = (props) => {
     const [ form, setForm] = useState({
         email: "",
+        name: "",
+        password: "",
+        password_confirmation: "",
     })
 
     const handleChange = ( event ) =>{
@@ -21,8 +24,11 @@ const Login = (props) => {
 
     const handleSubmit = ( event ) =>{
         event.preventDefault()
-        props.setUser(form)
-        axios.post('http://localhost:8000/api/login',form).then(
+        var header = new Headers({
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'http://localhost:3001/',
+        })
+        axios.post('http://localhost:8000/api/register',form).then(
             response => { 
                 localStorage.name = response.data.data.name
                 localStorage.email = response.data.data.email
@@ -31,12 +37,11 @@ const Login = (props) => {
                 props.history.push('/ideasLista')
             }
         ).catch(
-            error => {
+            error => { 
                 document.getElementById('alerta_registro').style.display = "block";
                 setTimeout(function(){ 
                     document.getElementById('alerta_registro').style.display = "none"; 
-                }, 10000); 
-            }
+                }, 10000); }
         )
     }
 
@@ -47,32 +52,44 @@ const Login = (props) => {
                     <img src={LogoBlanco} className="logo_login"/>
                 </div>
             </div>
+            <div className="row justify-content-end instruccion">
+                <div className="col-12">
+                    <span>Registra tu usuario completando la siguiente información</span>
+                </div>
+            </div>
             <div className="row justify-content-end" id="alerta_registro">
                 <div className="col-12">
-                    <div className="alert alert-danger" role="alert">No se ha podido iniciar sesión, por favor compruebe sus datos y vuelva a intentar</div>
+                    <div className="alert alert-danger" role="alert" id="alerta_txt">No se ha podido completar su registro, favor de verificar los datos y volver a intentarlo</div>
                 </div>
             </div>
             <form onSubmit={ handleSubmit }>
                 <div className="row">
                     <div className="elmentos_end">
-                        <label htmlFor="exampleInputEmail1" className="form-label name_label">Usuario</label>
-                        <input type="text" name="email" className="form-control form-control-lg" onChange={handleChange}/>
+                        <label htmlFor="exampleInputEmail1" className="form-label name_label">Nombre</label>
+                        <input type="text" name="name" className="form-control form-control-lg"  onChange={handleChange}/>
+                    </div>
+                    <div className="elmentos_end">
+                        <label htmlFor="exampleInputEmail1" className="form-label name_label">Email</label>
+                        <input type="email" name="email" className="form-control form-control-lg"  onChange={handleChange}/>
                     </div>
                     <div className="elmentos_end">
                         <label htmlFor="exampleInputPassword1" className="form-label name_label">Password</label>
-                        <input type="password" name="password" className="form-control form-control-lg" onChange={handleChange}/>
+                        <input type="password" name="password" className="form-control form-control-lg"  onChange={handleChange}/>
+                    </div>
+                    <div className="elmentos_end">
+                        <label htmlFor="exampleInputPassword1" className="form-label name_label">Confirmar password</label>
+                        <input type="password" name="password_confirmation" className="form-control form-control-lg"  onChange={handleChange}/>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12 elmentos_end btn_enviar">
-                        <button type="submit" className="btn btn-emprend btn-lg">Enviar <FontAwesomeIcon icon={faArrowRight} /></button>
+                        <button type="submit" className="btn btn-emprend btn-lg">Registrar <FontAwesomeIcon icon={faArrowRight} /></button>
                     </div>
                 </div>
             </form>
         </div>
     )
 }
-
 const mapDispatchToProps = {
     setUser
 }
@@ -82,5 +99,4 @@ const mapStateToProps = state => {
         user: state.user
     }
 }
-
-export default connect(mapStateToProps,mapDispatchToProps)(Login);
+export default  connect(mapStateToProps,mapDispatchToProps)(Register);
