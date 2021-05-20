@@ -31,8 +31,6 @@ const Header = (props) => {
                     <ul className="navbar-nav dropdown">
                     <a className="nav_link  dropdown-toggle" href="#" id="navbarDropdown"  role="button" data-bs-toggle="dropdown" aria-expanded="false">{localStorage.name}</a>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a className="dropdown-item nav_link" href="/ideasRegister">Registrar idea</a></li>
-                            <li><a className="dropdown-item nav_link" href="/ideasLista">Lista de ideas</a></li>
                             <li><a className="dropdown-item nav_link" href="#" onClick={handleChange}>Cerrar sesión</a></li>
                         </ul>
                     </ul>

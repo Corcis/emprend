@@ -48,7 +48,8 @@ const Register = (props) => {
                 document.getElementById('alerta_registro').style.display = "block";
                 setTimeout(function(){ 
                     document.getElementById('alerta_registro').style.display = "none"; 
-                }, 10000); }
+                }, 10000); 
+            }
         )
     }
 
@@ -73,19 +74,19 @@ const Register = (props) => {
                 <div className="row">
                     <div className="elmentos_end">
                         <label htmlFor="exampleInputEmail1" className="form-label name_label">Nombre</label>
-                        <input type="text" name="name" className="form-control form-control-lg"  onChange={handleChange}/>
+                        <input type="text" name="name" className="form-control form-control-lg" required onChange={handleChange}/>
                     </div>
                     <div className="elmentos_end">
                         <label htmlFor="exampleInputEmail1" className="form-label name_label">Email</label>
-                        <input type="email" name="email" className="form-control form-control-lg"  onChange={handleChange}/>
+                        <input type="email" name="email" className="form-control form-control-lg" required onChange={handleChange}/>
                     </div>
                     <div className="elmentos_end">
                         <label htmlFor="exampleInputPassword1" className="form-label name_label">Password</label>
-                        <input type="password" name="password" className="form-control form-control-lg"  onChange={handleChange}/>
+                        <input type="password" name="password" className="form-control form-control-lg" required onChange={handleChange}/>
                     </div>
                     <div className="elmentos_end">
                         <label htmlFor="exampleInputPassword1" className="form-label name_label">Confirmar password</label>
-                        <input type="password" name="password_confirmation" className="form-control form-control-lg"  onChange={handleChange}/>
+                        <input type="password" name="password_confirmation" className="form-control form-control-lg" required onChange={handleChange}/>
                     </div>
                 </div>
                 <div className="row">

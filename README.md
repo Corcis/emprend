@@ -7,18 +7,18 @@ Pre-requisitos 📋
 Tener instalada la API brindada en el siguiente repositorio https://github.com/fakereto/emprend-api 
 Clonar el repositorio https://github.com/Corcis/emprend.git donde se encuentra la aplicacion o bien haber descargado el ZIP 
 
-Da un ejemplo
 Instalación 🔧
 Una vez clonado el repositorio ejecutar npm install
 En el archivo .env encontrado en la raiz se encuentra la ruta donde esta corriendo la API por default esta como 'http://localhost:8000' pero de ser necesario puede cambiarse a la ruta donde tiene corriendo la API
 Una vez instaladas todas las dependencias se debe ejecutar npm run start
-Se
-
 
 Para la vista del landing page en el navegador debe colocar la siguiente url http://localhost:3001/
 Para la vista principal (Login) de las ideas en el navegador debe colocar la siguiente url http://localhost:3001/login 
 Si lo que quiere hacer es registrar un nuevo suaurio en el navegador debe colocar la siguiente url http://localhost:3001/register 
 Una vez iniciada sesion o registrado usuario la aplicacion lo reedireccionará a la lista de ideas
+
+Test 🔧
+Para ejecutar el test se debe ejecutar el siguiente comando npm run test:mocha
 
 Construido con 🛠️
 La biblioteca de Javascript utilizada para la construccion del proyecto fue React JS
@@ -36,6 +36,7 @@ Se utilizaron en conjunto las siguientes dependencias / herramientas
 -React-redux
 -Sweetalert2
 -Babel
+-Mocha & Chai para test a la plataforma
 
 Autores ✒️
 Diana Rocío Cortés Cisneros

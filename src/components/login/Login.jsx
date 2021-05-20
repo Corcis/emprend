@@ -64,7 +64,7 @@ const Login = (props) => {
                 <div className="row">
                     <div className="elmentos_end">
                         <label htmlFor="exampleInputEmail1" className="form-label name_label">Usuario</label>
-                        <input type="text" name="email" className="form-control form-control-lg" onChange={handleChange}/>
+                        <input type="email" name="email" className="form-control form-control-lg" onChange={handleChange} required/>
                     </div>
                     <div className="elmentos_end">
                         <label htmlFor="exampleInputPassword1" className="form-label name_label">Password</label>
@@ -73,7 +73,7 @@ const Login = (props) => {
                 </div>
                 <div className="row">
                     <div className="col-12 elmentos_end btn_enviar">
-                        <button type="submit" className="btn btn-emprend btn-lg">Enviar <FontAwesomeIcon icon={faArrowRight} /></button>
+                        <button type="submit" className="btn btn-emprend btn-lg">Enviar <FontAwesomeIcon icon={faArrowRight} required/></button>
                     </div>
                 </div>
             </form>

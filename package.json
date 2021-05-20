@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
+        "test:mocha": "mocha --require @babel/register",
         "start": "webpack server --env API=http://localhost:8000 --config webpack.config.dev.js",
         "build": "webpack --config webpack.config.js"
     },
@@ -22,6 +23,8 @@
         "autoprefixer": "^10.2.5",
         "axios": "^0.21.1",
         "bootstrap": "^5.0.1",
+        "chai": "^4.3.4",
+        "mocha": "^8.4.0",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-redux": "^7.2.4",
@@ -34,6 +37,7 @@
         "@babel/core": "^7.14.2",
         "@babel/preset-env": "^7.14.2",
         "@babel/preset-react": "^7.13.13",
+        "@babel/register": "^7.13.16",
         "babel-loader": "^8.2.2",
         "css-loader": "^5.2.4",
         "dotenv-webpack": "^7.0.2",
