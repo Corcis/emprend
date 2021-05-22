@@ -65,7 +65,12 @@ const ListaIdea = (props) => {
                 }
             }
         ).catch(
-            error => { }
+            error => {
+                document.getElementById('alerta_registro2').style.display = "block";
+                setTimeout(function(){ 
+                    document.getElementById('alerta_registro2').style.display = "none"; 
+                }, 10000);
+            }
         )
         return function () {
             unmounted = true;
@@ -106,7 +111,12 @@ const ListaIdea = (props) => {
                 }
             }
         ).catch(
-            error => { }
+            error => {
+                document.getElementById('alerta_registro2').style.display = "block";
+                setTimeout(function(){ 
+                    document.getElementById('alerta_registro2').style.display = "none"; 
+                }, 10000);
+            }
         )
         return function () {
             unmounted = true;
@@ -131,7 +141,10 @@ const ListaIdea = (props) => {
                 }
             ).catch(
                 error => { 
-                
+                    document.getElementById('alerta_registro2').style.display = "block";
+                    setTimeout(function(){ 
+                        document.getElementById('alerta_registro2').style.display = "none"; 
+                    }, 10000);
                 }
             )
         } else {
@@ -158,6 +171,11 @@ const ListaIdea = (props) => {
                             <div className="row justify-content-end" id="alerta_registro">
                                 <div className="col-12">
                                     <div className="alert alert-danger" role="alert" id="alerta_txt">El campo de ideas debe llenase para poder continuar</div>
+                                </div>
+                            </div>
+                            <div className="row justify-content-end" id="alerta_registro2">
+                                <div className="col-12">
+                                    <div className="alert alert-danger" role="alert" id="alerta_txt">Lo sentimos hubo un error con el servicio, por favor intente nuevamente o intentelo más tarde</div>
                                 </div>
                             </div>
                             <form onSubmit={ handleSubmit } id="body_">
